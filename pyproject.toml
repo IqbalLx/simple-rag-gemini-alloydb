@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "simple-rag-gemini-alloydb"
+version = "0.1.0"
+description = ""
+authors = ["IqbalLx <iqbal@mbts.dev>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pypika = "^0.48.9"
+google-generativeai = "^0.7.1"
+python-dotenv = "^1.0.1"
+psycopg2 = "^2.9.9"
+streamlit = "^1.36.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+polars = "^1.1.0"
+types-psycopg2 = "^2.9.21.20240417"
+httpx = "^0.27.0"
+asyncio = "^3.4.3"
+types-requests = "^2.32.0.20240622"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

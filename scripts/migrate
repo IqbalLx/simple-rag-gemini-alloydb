@@ -1,0 +1,56 @@
+#!/bin/bash
+
+GOOSE_DRIVER="postgres"
+GOOSE_MIGRATION_DIR="./database"
+
+case $1 in
+    "create")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose create $2 sql
+        ;;
+    "status")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose status
+        ;;
+    "up")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose up
+        ;;
+    "down")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose down
+        ;;
+    "redo")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose redo
+        ;;
+    "fix")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose fix
+        ;;
+    "version")
+        GOOSE_DRIVER=$GOOSE_DRIVER \
+        GOOSE_DBSTRING=$POSTGRES_CONNSTRING \
+        GOOSE_MIGRATION_DIR=$GOOSE_MIGRATION_DIR \
+        goose version
+        ;;
+    "help")
+        goose help
+        ;;
+    *)
+        echo "Usage: $0 {create|status|up|down|redo|fix|version|help}"
+        exit 1
+        ;;
+esac

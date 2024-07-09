@@ -1,0 +1,5 @@
+.env
+.mypy_cache
+requirements.txt
+
+*/**/__pycache__

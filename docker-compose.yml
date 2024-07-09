@@ -1,0 +1,18 @@
+services:
+  pg:
+    image: pgvector/pgvector:pg14
+    restart: always
+    volumes:
+      - pgnewsbot:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+    environment:
+      - POSTGRES_DB=newsbot
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  pgnewsbot:
+  
