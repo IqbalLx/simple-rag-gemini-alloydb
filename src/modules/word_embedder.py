@@ -17,7 +17,7 @@ def get_word_embedding_remote(word: str) -> str:
     res = requests.post(
         f"{NOMICAI_BASE_URL}/embedding/text",
         headers={"Authorization": f"Bearer {os.environ['NOMICAI_API_KEY']}"},
-        json={"model": "nomic-embed-text-v1.5", "texts": [word]},
+        json={"model": "nomic-embed-text-v1.5", "texts": [word], "task_type":'search_query',},
     )
 
     json = res.json()

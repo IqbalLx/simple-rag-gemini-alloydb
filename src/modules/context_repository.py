@@ -17,7 +17,7 @@ class NewsContext:
         return f"{self.title} ({self.url}) [{self.distance:.2f}]"
 
 def get_news_context(
-        db, question_embedding: str, max_length=2, max_distance=0.35
+        db, question_embedding: str, max_length=10, max_distance=0.35
     ) -> List[NewsContext]:
         news_table = pk.Table("news")
         cosine_distance = pk.CustomFunction("cosine_distance", ["vector", "vector"])
